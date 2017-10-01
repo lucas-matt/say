@@ -20,12 +20,13 @@ class Say extends React.Component {
   say() {       
     var msg = new SpeechSynthesisUtterance(this.state.value);
     window.speechSynthesis.speak(msg);
+    this.setState({ value: '' });
   }
 
   render () {
     return (
       <form action='#' onSubmit={this.say}>
-        <input type="input" value={this.state.value} onChange={this.change} />
+        <input type="input" value={this.state.value} onChange={this.change} placeholder="type & hit enter" />
       </form>
     )   
   }
